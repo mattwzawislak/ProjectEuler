@@ -1,6 +1,8 @@
 package euler;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author Obicere
@@ -38,6 +40,31 @@ public class Common {
             return true;
         }
         return str.charAt(0) == str.charAt(str.length() - 1) && isPalindrome(str.substring(1, str.length() - 1));
+    }
+
+    public static int[] getDivisors(final int num){
+        final List<Integer> list = new ArrayList<>();
+        list.add(1);
+        for(int i = 2; i < Math.round(Math.sqrt(num)); i++){
+            if(num % i == 0){
+                list.add(i);
+                list.add(num / i);
+            }
+        }
+        Collections.sort(list);
+        final int nums[] = new int[list.size()];
+        for(int i = 0; i < nums.length; i++){
+            nums[i] = list.get(i);
+        }
+        return nums;
+    }
+
+    public static int sum(final int[] nums){
+        int sum = 0;
+        for(final int n : nums){
+            sum += n;
+        }
+        return sum;
     }
 
 }

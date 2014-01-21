@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class Runner {
 
-    private static final File DIRECTORY = new File("F:\\Programming\\out\\production\\ProjectEuler");
+    private static final File DIRECTORY = new File("out\\production\\ProjectEuler");
     private static final FileFilter FILE_FILTER = new FileFilter() {
         @Override
         public boolean accept(File pathname) {

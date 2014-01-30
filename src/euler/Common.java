@@ -26,14 +26,32 @@ public class Common {
         return true;
     }
 
-    public static int fibonacci(int i) {
+    public static int[] getPrimeFactors(int num){
+        final ArrayList<Integer> factors = new ArrayList<>();
+        while(num > 1){
+            for(int i = 2; i <= num; i++){
+                if(num % i == 0 && isPrime(i)){
+                    num /= i;
+                    factors.add(i);
+                    break;
+                }
+            }
+        }
+        final int[] nums = new int[factors.size()];
+        for (int i = 0; i < factors.size(); i++) {
+            nums[i] = factors.get(i);
+        }
+        return nums;
+    }
+
+    public static int fibonacci(final int i) {
         if (i <= 1) {
             return i;
         }
         if (i < FIBONACCI.size()) {
             return FIBONACCI.get(i);
         }
-        final int num = fibonacci(i - 1) + fibonacci(i - 2);
+        final int num = fibonacci(i - 2) + fibonacci(i - 1);
         FIBONACCI.add(num);
         return num;
     }

@@ -1,7 +1,5 @@
 package page1;
 
-import java.util.Arrays;
-
 /**
  * page1
  * Created: 1/22/14 12:38 PM
@@ -12,7 +10,29 @@ import java.util.Arrays;
 public class Euler030 {
 
     public static void main(final String[] args){
-        System.out.println(Arrays.toString(getDigits(5918)));
+        int totalSum = 0;
+        for(int i = 2; i < 410000; i++){ // through plotting we can determine max
+            final int[] digits = getDigits(i);
+            int sum = 0;
+            for(final int digit : digits){
+                sum += toPowerOfFive(digit);
+                if(sum > i){ // No way to continue
+                    break;
+                }
+            }
+            if(sum == i){
+                System.out.println("Match at: " + i);
+                totalSum += i;
+            }
+        }
+        System.out.println(totalSum);
+    }
+
+    public static int toPowerOfFive(final int num){
+        // Should be faster than calculating Math.pow(double, double).
+        // Since we can presume using integer multiplication that this
+        // will always be an integer throughout operation.
+        return num * num * num * num * num;
     }
 
     public static int[] getDigits(final int num){

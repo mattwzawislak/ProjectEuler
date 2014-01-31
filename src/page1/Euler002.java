@@ -14,7 +14,6 @@ public class Euler002 {
             if(fib > 4000000){
                 break;
             }
-            System.out.printf("F(%d) = %d\n", i, fib);
             if(fib % 2 == 0){
                 sum += fib;
             }

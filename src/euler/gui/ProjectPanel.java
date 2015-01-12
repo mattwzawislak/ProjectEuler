@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.SwingUtilities;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import java.awt.BorderLayout;
@@ -63,16 +64,20 @@ public class ProjectPanel extends JPanel {
         final JButton run = new JButton("Run");
 
         run.addActionListener(e -> {
-            try {
-                final long start = System.currentTimeMillis();
-                final String result = project.call();
-                final long time = System.currentTimeMillis() - start;
-                final JTextArea message = new JTextArea(String.format("Execution completed successfully (%d ms):%n%s", time, result));
-                message.setEditable(false);
-                JOptionPane.showMessageDialog(null, message, "", JOptionPane.PLAIN_MESSAGE);
-            } catch (final Exception e1) {
-                e1.printStackTrace();
-            }
+            final Thread runProject = new Thread(() -> {
+                try {
+                    final long start = System.currentTimeMillis();
+                    final String result = project.call();
+                    final long time = System.currentTimeMillis() - start;
+                    final JTextArea message = new JTextArea(String.format("Execution completed successfully (%d ms):%n%s", time, result));
+                    message.setEditable(false);
+                    JOptionPane.showMessageDialog(null, message, "", JOptionPane.PLAIN_MESSAGE);
+                } catch (final Exception e1) {
+                    e1.printStackTrace();
+                }
+            });
+            runProject.setDaemon(true);
+            runProject.start();
         });
 
         add(label);

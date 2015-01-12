@@ -14,15 +14,9 @@ public class Euler041 extends Project {
     }
 
     public String call() {
-        ArrayList<Integer> list = new ArrayList<>();
-        for (int i = 987654321; i >= 1; i--) {
-            final int[] digits = getDigits(i);
-            if (isPandigital(digits, digits.length)) {
-                list.add(i);
-            }
-        }
-        for (int i = list.size() - 1; i >= 0; i--) {
-            if (isPrime(i)) {
+        for (int i = 987654321; i >= 2143; i -= 2) {
+            //final int[] digits = getDigits(i);
+            if (isPandigital(i) && isPrime(i)) {
                 return String.valueOf(i);
             }
         }

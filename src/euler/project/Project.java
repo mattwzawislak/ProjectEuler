@@ -135,6 +135,19 @@ public abstract class Project implements Callable<String>, Comparable<Project> {
         return digits;
     }
 
+    public boolean isPandigital(int n) {
+        int digits = 0;
+        int count = 0;
+
+        for (; n > 0; n /= 10, ++count) {
+            if (digits == (digits |= 1 << (n - ((n / 10) * 10) - 1))) {
+                return false;
+            }
+        }
+
+        return digits == (1 << count) - 1;
+    }
+
     public boolean isPandigital(final int nums[], final int order) {
         final int[] clone = nums.clone();
         Arrays.sort(clone);

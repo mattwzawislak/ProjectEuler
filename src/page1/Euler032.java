@@ -13,7 +13,7 @@ public class Euler032 extends Project {
         return 32;
     }
 
-    public void run() {
+    public String call() {
         final HashSet<Integer> products = new HashSet<>();
         // Only possible digit-combinations
         // to produce a 9-digit number are
@@ -33,6 +33,6 @@ public class Euler032 extends Project {
         for (final int product : products) {
             sum += product;
         }
-        System.out.println(sum);
+        return String.valueOf(sum);
     }
 }

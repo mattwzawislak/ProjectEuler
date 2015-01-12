@@ -15,13 +15,13 @@ public class Euler029 extends Project {
 
     private static final int LIMIT = 100;
 
-    public void run() {
+    public String call() {
         final HashSet<Double> seen = new HashSet<>();
         for (int a = 2; a <= LIMIT; a++) {
             for (int b = 2; b <= LIMIT; b++) {
                 seen.add(Math.pow(a, b));
             }
         }
-        System.out.println(seen.size());
+        return String.valueOf(seen.size());
     }
 }

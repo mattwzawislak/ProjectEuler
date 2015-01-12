@@ -14,7 +14,7 @@ public class Euler028 extends Project {
     private static final int SIZE       = 1001;
     private static final int LAST_LIMIT = SIZE * SIZE;
 
-    public void run() {
+    public String call() {
         int sum = 1;
         int last = 1;
         for (int i = 2; last < LAST_LIMIT; i += 2) {
@@ -27,6 +27,6 @@ public class Euler028 extends Project {
             sum += 10 * i + 4 * last;
             last += 4 * i;
         }
-        System.out.println(sum);
+        return String.valueOf(sum);
     }
 }

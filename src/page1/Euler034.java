@@ -11,7 +11,7 @@ public class Euler034 extends Project {
         return 34;
     }
 
-    public void run() {
+    public String call() {
         int totalSum = 0;
         for (int i = 3; i < 100000; i++) { // By plotting you can see the divergence
             int sum = 0;
@@ -23,6 +23,6 @@ public class Euler034 extends Project {
                 totalSum += i;
             }
         }
-        System.out.println(totalSum);
+        return String.valueOf(totalSum);
     }
 }

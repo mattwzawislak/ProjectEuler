@@ -11,7 +11,7 @@ public class Euler004 extends Project {
         return 4;
     }
 
-    public void run() {
+    public String call() {
         int max = 0;
         for (int i = 999; i > 0; i--) {
             if (i * 999 < max) {
@@ -26,6 +26,6 @@ public class Euler004 extends Project {
                 }
             }
         }
-        System.out.println(max);
+        return String.valueOf(max);
     }
 }

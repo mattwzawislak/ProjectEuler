@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.Callable;
 
 /**
  * @author Obicere
  */
-public abstract class Project implements Runnable, Comparable<Project> {
+public abstract class Project implements Callable<String>, Comparable<Project> {
 
     private static final ArrayList<Integer> FIBONACCI = new ArrayList<>();
     private static final ArrayList<Integer> FACTORIAL = new ArrayList<>();
@@ -22,8 +23,6 @@ public abstract class Project implements Runnable, Comparable<Project> {
     }
 
     public abstract int number();
-
-    public abstract void run();
 
     @Override
     public final int compareTo(final Project other) {

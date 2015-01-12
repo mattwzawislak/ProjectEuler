@@ -114,7 +114,7 @@ public class Euler013 extends Project {
             "53503534226472524250874054075591789781264330331690"
     };
 
-    public void run() {
+    public String call() {
         long sum = 0;
         int radix = 0;
         for (int i = 49; i >= 0; i--) {
@@ -126,8 +126,7 @@ public class Euler013 extends Project {
             } else {
                 sum /= 10;
             }
-            System.out.println(sum);
         }
-        System.out.println(String.valueOf(sum).substring(0, 10));
+        return String.valueOf(sum).substring(0, 10);
     }
 }

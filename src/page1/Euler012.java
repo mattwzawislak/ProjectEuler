@@ -11,7 +11,7 @@ public class Euler012 extends Project {
         return 12;
     }
 
-    public void run() {
+    public String call() {
         int num = 0;
         for (int i = 1; i > 0; i++) {  // i > 0 stops potential overflow
             num += i;
@@ -26,5 +26,6 @@ public class Euler012 extends Project {
                 break;
             }
         }
+        return null;
     }
 }

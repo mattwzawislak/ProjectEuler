@@ -11,7 +11,7 @@ public class Euler021 extends Project {
         return 21;
     }
 
-    public void run() {
+    public String call() {
         int sum = 0;
         for (int i = 1; i < 10000; i++) {
             int num = sum(getDivisors(i));
@@ -20,6 +20,6 @@ public class Euler021 extends Project {
                 sum += i;
             }
         }
-        System.out.println(sum);
+        return String.valueOf(sum);
     }
 }

@@ -11,7 +11,7 @@ public class Euler038 extends Project {
         return 38;
     }
 
-    public void run() {
+    public String call() {
         int highest = 0;
         for (int i = 1; i < 100000; i++) {
             int[] digits = getDigits(i);
@@ -27,6 +27,6 @@ public class Euler038 extends Project {
                 }
             }
         }
-        System.out.println(highest);
+        return String.valueOf(highest);
     }
 }

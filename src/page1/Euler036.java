@@ -11,13 +11,13 @@ public class Euler036 extends Project {
         return 36;
     }
 
-    public void run() {
+    public String call() {
         int sum = 0;
         for (int i = 1; i < 1000000; i++) {
             if (isPalindrome(String.valueOf(i)) && isPalindrome(Integer.toBinaryString(i))) {
                 sum += i;
             }
         }
-        System.out.println(sum);
+        return String.valueOf(sum);
     }
 }

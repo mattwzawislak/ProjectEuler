@@ -11,7 +11,7 @@ public class Euler039 extends Project {
         return 39;
     }
 
-    public void run() {
+    public String call() {
         int best = 0;
         int score = 0;
         for (int p = 2; p <= 1000; p++) {
@@ -26,6 +26,6 @@ public class Euler039 extends Project {
                 best = p;
             }
         }
-        System.out.println(best);
+        return String.valueOf(best);
     }
 }

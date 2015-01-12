@@ -13,7 +13,7 @@ public class Euler019 extends Project {
 
     private static final int[] MONTH_AMOUNTS = new int[]{3, 0, 3, 2, 3, 2, 3, 3, 2, 3, 2, 3};
 
-    public void run() {
+    public String call() {
         int start = 2; // 2 = Tuesday
         int count = 0;
         for (int y = 1901; y <= 2000; y++) {
@@ -28,7 +28,7 @@ public class Euler019 extends Project {
                 }
             }
         }
-        System.out.println(count);
+        return String.valueOf(count);
     }
 
     public static boolean isLeapYear(final int year) {

@@ -50,6 +50,8 @@ public class ProjectSelectorPanel extends JPanel {
                     add(panel);
                 }
             }
+            revalidate();
+            updateUI();
         }
     }
 

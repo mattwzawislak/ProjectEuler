@@ -11,7 +11,7 @@ public class Euler033 extends Project {
         return 33;
     }
 
-    public void run() {
+    public String call() {
         int num = 1;
         int denom = 1;
         for (int i = 10; i < 100; i++) {
@@ -37,6 +37,6 @@ public class Euler033 extends Project {
                 }
             }
         }
-        System.out.println(reduce(num, denom)[1]);
+        return String.valueOf(reduce(num, denom)[1]);
     }
 }

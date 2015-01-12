@@ -11,14 +11,13 @@ public class Euler007 extends Project {
         return 7;
     }
 
-    public void run() {
+    public String call() {
         int number = 0;
         for (int i = 2; ; i++) {
             if (isPrime(i)) {
                 number++;
                 if (number == 10001) {
-                    System.out.println(i);
-                    break;
+                    return String.valueOf(i);
                 }
             }
         }

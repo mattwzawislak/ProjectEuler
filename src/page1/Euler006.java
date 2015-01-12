@@ -11,7 +11,7 @@ public class Euler006 extends Project {
         return 6;
     }
 
-    public void run() {
+    public String call() {
         int sum1 = 0;
         for (int i = 0; i <= 100; i++) {
             sum1 += i;
@@ -21,6 +21,6 @@ public class Euler006 extends Project {
         for (int i = 0; i <= 100; i++) {
             sum2 += i * i;
         }
-        System.out.println(sum1 - sum2);
+        return String.valueOf(sum1 - sum2);
     }
 }

@@ -13,7 +13,7 @@ public class Euler014 extends Project {
 
     private static final int[] REGISTRY = new int[1000000];
 
-    public void run() {
+    public String call() {
         int longest = 0;
         int best = 0;
         for (int i = 1; i < 1000000; i++) {
@@ -35,9 +35,8 @@ public class Euler014 extends Project {
             if (chain > longest) {
                 longest = chain;
                 best = i;
-                System.out.println(chain + ", " + i);
             }
         }
-        System.out.println(best);
+        return String.valueOf(best);
     }
 }

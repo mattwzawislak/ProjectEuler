@@ -11,7 +11,7 @@ public class Euler040 extends Project {
         return 40;
     }
 
-    public void run() {
+    public String call() {
         final StringBuilder builder = new StringBuilder(1000000);
         for (int i = 1; builder.length() < 1000000; i++) {
             builder.append(i);
@@ -20,6 +20,6 @@ public class Euler040 extends Project {
         for (int i = 0; i < 7; i++) {
             result *= builder.charAt((int) Math.round(Math.pow(10, i) - 1)) - '0';
         }
-        System.out.println(result);
+        return String.valueOf(result);
     }
 }

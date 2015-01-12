@@ -19,7 +19,7 @@ public class Euler022 extends Project {
         return 22;
     }
 
-    public void run() {
+    public String call() {
         try {
             final Scanner in = new Scanner(new FileInputStream(new File("F:\\Programming\\out\\production\\ProjectEuler\\page1\\names.txt")));
             final LinkedList<String> list = new LinkedList<>();
@@ -33,9 +33,10 @@ public class Euler022 extends Project {
             for (int i = 1; iter.hasNext(); i++) {
                 sum += alphaValue(iter.next()) * i;
             }
-            System.out.println(sum);
+            return String.valueOf(sum);
         } catch (final FileNotFoundException e) {
             e.printStackTrace();
+            return "Resource file was not found.";
         }
     }
 

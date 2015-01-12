@@ -11,7 +11,7 @@ public class Euler026 extends Project {
         return 26;
     }
 
-    public void run() {
+    public String call() {
         int score = 0;
         for (int i = 1000; i > 1; i--) {
             if (i <= score) {
@@ -31,6 +31,6 @@ public class Euler026 extends Project {
                 score = newScore;
             }
         }
-        System.out.println(score);
+        return String.valueOf(score);
     }
 }

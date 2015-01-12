@@ -14,7 +14,7 @@ public class Euler023 extends Project {
     private static final int       LIMIT    = 28123;
     private static final boolean[] ABUNDANT = new boolean[LIMIT + 1];
 
-    public void run() {
+    public String call() {
         for (int i = 1; i < LIMIT + 1; i++) {
             ABUNDANT[i] = isAbundant(i);
         }
@@ -26,7 +26,7 @@ public class Euler023 extends Project {
                 sum += i;
             }
         }
-        System.out.println(sum);
+        return String.valueOf(sum);
     }
 
     private static boolean isSumOfAbundant(int n) {

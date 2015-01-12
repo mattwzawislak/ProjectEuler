@@ -15,7 +15,7 @@ public class Euler024 extends Project {
 
     private static final int LIMIT = 1000000;
 
-    public void run() {
+    public String call() {
         int limit = LIMIT - 1;
         int start = 10;
         final StringBuilder builder = new StringBuilder(start);
@@ -30,6 +30,6 @@ public class Euler024 extends Project {
             builder.append(digits.remove(i));
             start--;
         }
-        System.out.println(builder);
+        return builder.toString();
     }
 }

@@ -13,7 +13,7 @@ public class Euler025 extends Project {
         return 25;
     }
 
-    public void run() {
+    public String call() {
         BigInteger i = new BigInteger("1");
         BigInteger j = new BigInteger("1");
         int count = 2;
@@ -23,8 +23,7 @@ public class Euler025 extends Project {
             i = temp;
             count++;
             if (j.toString().length() == 1000) {
-                System.out.println(count);
-                break;
+                return String.valueOf(count);
             }
         }
     }

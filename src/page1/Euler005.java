@@ -11,7 +11,7 @@ public class Euler005 extends Project {
         return 5;
     }
 
-    public void run() {
+    public String call() {
         top:
         for (int i = 20; ; i++) {
             for (int j = 2; j <= 20; j++) {
@@ -19,8 +19,7 @@ public class Euler005 extends Project {
                     continue top;
                 }
             }
-            System.out.println(i);
-            break;
+            return String.valueOf(i);
         }
     }
 }

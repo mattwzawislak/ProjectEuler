@@ -11,7 +11,7 @@ public class Euler015 extends Project {
         return 15;
     }
 
-    public void run() {
+    public String call() {
         // 40!/(20! * 20!) -> (21 * 22 * ... * 40) / (1 * 2 * ... * 20)
         // Assuming this, we can devise the following:
         long num = 1;
@@ -19,6 +19,6 @@ public class Euler015 extends Project {
             num *= (i + 20);
             num /= i;
         }
-        System.out.println(num);
+        return String.valueOf(num);
     }
 }

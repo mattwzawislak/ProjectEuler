@@ -13,7 +13,7 @@ public class Euler041 extends Project {
         return 41;
     }
 
-    public void run() {
+    public String call() {
         ArrayList<Integer> list = new ArrayList<>();
         for (int i = 987654321; i >= 1; i--) {
             final int[] digits = getDigits(i);
@@ -21,12 +21,11 @@ public class Euler041 extends Project {
                 list.add(i);
             }
         }
-        System.out.println("Got all pandigitals");
         for (int i = list.size() - 1; i >= 0; i--) {
             if (isPrime(i)) {
-                System.out.println(i);
-                break;
+                return String.valueOf(i);
             }
         }
+        return null;
     }
 }

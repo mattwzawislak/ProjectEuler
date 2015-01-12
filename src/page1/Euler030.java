@@ -11,7 +11,7 @@ public class Euler030 extends Project {
         return 30;
     }
 
-    public void run() {
+    public String call() {
         int totalSum = 0;
         for (int i = 2; i < 410000; i++) {
             // through plotting we can determine max
@@ -27,7 +27,7 @@ public class Euler030 extends Project {
                 totalSum += i;
             }
         }
-        System.out.println(totalSum);
+        return String.valueOf(totalSum);
     }
 
     public static int toPowerOfFive(final int num) {

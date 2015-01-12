@@ -11,13 +11,13 @@ public class Euler010 extends Project {
         return 10;
     }
 
-    public void run() {
+    public String call() {
         long sum = 2;
         for (int i = 3; i < 2000000; i += 2) {
             if (isPrime(i)) {
                 sum += i;
             }
         }
-        System.out.println(sum);
+        return String.valueOf(sum);
     }
 }

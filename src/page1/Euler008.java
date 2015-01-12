@@ -32,7 +32,7 @@ public class Euler008 extends Project {
                                        "05886116467109405077541002256983155200055935729725" +
                                        "71636269561882670428252483600823257530420752963450";
 
-    public void run() {
+    public String call() {
         int max = 0;
         for (int i = 0; i < DATA.length() - 4; i++) {
             int prod = 1;
@@ -43,7 +43,7 @@ public class Euler008 extends Project {
                 max = prod;
             }
         }
-        System.out.println(max);
+        return String.valueOf(max);
     }
 
     public static int toInt(final char c) {

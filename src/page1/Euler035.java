@@ -11,7 +11,7 @@ public class Euler035 extends Project {
         return 35;
     }
 
-    public void run() {
+    public String call() {
         int count = 0;
         top:
         for (int i = 2; i < 1000000; i++) {
@@ -24,7 +24,7 @@ public class Euler035 extends Project {
             }
             count++;
         }
-        System.out.println(count);
+        return String.valueOf(count);
     }
 
     public static void rotate(final int[] digits) {

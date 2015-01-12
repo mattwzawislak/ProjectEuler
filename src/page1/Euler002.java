@@ -7,11 +7,13 @@ import euler.project.Project;
  */
 public class Euler002 extends Project {
 
+    @Override
     public int number() {
         return 2;
     }
 
-    public void run() {
+    @Override
+    public String call() {
         int sum = 0;
         for (int i = 0; i < Integer.MAX_VALUE; i++) {
             final int fib = fibonacci(i);
@@ -22,6 +24,6 @@ public class Euler002 extends Project {
                 sum += fib;
             }
         }
-        System.out.println(sum);
+        return String.valueOf(sum);
     }
 }

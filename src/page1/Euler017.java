@@ -77,16 +77,15 @@ public class Euler017 extends Project {
                 }
             }
         }
-        throw new RuntimeException("FAILED TO CREATE STRING");
+        throw new RuntimeException("Failed to create value.");
     }
 
-    public void run() {
+    public String call() {
         int sum = 0;
         for (int i = 1; i <= 1000; i++) {
             final String format = format(i);
             sum += format.trim().length();
-            System.out.println(format);
         }
-        System.out.println(sum);
+        return String.valueOf(sum);
     }
 }

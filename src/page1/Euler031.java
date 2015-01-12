@@ -11,7 +11,7 @@ public class Euler031 extends Project {
         return 31;
     }
 
-    public void run() {
+    public String call() {
         final int target = 200;
         final int[] coinSizes = {1, 2, 5, 10, 20, 50, 100, 200};
         final int[] ways = new int[target + 1];
@@ -22,6 +22,6 @@ public class Euler031 extends Project {
                 ways[j] += ways[j - coinSize];
             }
         }
-        System.out.println(ways[target]); // Print out ways to get 200 pence        // for example, ways[2] would represent ways to get 2 pence, etc.
+        return String.valueOf(ways[target]);
     }
 }

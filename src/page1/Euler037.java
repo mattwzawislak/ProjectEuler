@@ -11,7 +11,7 @@ public class Euler037 extends Project {
         return 37;
     }
 
-    public void run() {
+    public String call() {
         int sum = 0;
         int count = 0;
         for (int i = 8; count < 11; i++) {
@@ -20,7 +20,7 @@ public class Euler037 extends Project {
                 count++;
             }
         }
-        System.out.println(sum);
+        return String.valueOf(sum);
     }
 
     public boolean isTruncatablePrime(final int num) {

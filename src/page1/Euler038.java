@@ -1,29 +1,32 @@
 package page1;
 
-import euler.Common;
+import euler.Project;
 
 /**
  * @author Obicere
  */
-public class Euler038 {
+public class Euler038 extends Project {
 
-    public static void main(final String[] args){
+    public int number() {
+        return 38;
+    }
+
+    public void run() {
         int highest = 0;
-        for(int i = 1; i < 100000; i++){
-            int[] digits = Common.getDigits(i);
+        for (int i = 1; i < 100000; i++) {
+            int[] digits = getDigits(i);
             int n = 2;
-            while(digits.length < 9){
+            while (digits.length < 9) {
                 final int next = i * n;
-                digits = Common.combine(digits, Common.getDigits(next));
+                digits = combine(digits, getDigits(next));
                 n++;
             }
-            if(digits.length == 9){
-                if(Common.isPandigital(digits, 9)){
-                    highest = Math.max(Common.numberFromDigits(digits), highest);
+            if (digits.length == 9) {
+                if (isPandigital(digits, 9)) {
+                    highest = Math.max(numberFromDigits(digits), highest);
                 }
             }
         }
         System.out.println(highest);
     }
-
 }

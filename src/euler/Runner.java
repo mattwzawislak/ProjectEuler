@@ -1,7 +1,12 @@
 package euler;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,14 +18,14 @@ import java.util.Scanner;
  */
 public class Runner {
 
-    private static final File DIRECTORY = new File("out\\production\\ProjectEuler");
-    private static final FileFilter FILE_FILTER = new FileFilter() {
+    private static final File                              DIRECTORY       = new File("out\\production\\ProjectEuler");
+    private static final FileFilter                        FILE_FILTER     = new FileFilter() {
         @Override
         public boolean accept(File pathname) {
             return pathname.getName().matches("Euler\\d+\\.class");
         }
     };
-    private static final FileFilter PAGE_FILTER = new FileFilter() {
+    private static final FileFilter                        PAGE_FILTER     = new FileFilter() {
         @Override
         public boolean accept(File pathname) {
             return pathname.isDirectory() && pathname.getName().matches("page\\d+");
@@ -35,10 +40,13 @@ public class Runner {
             final File[] files = DIRECTORY.listFiles(PAGE_FILTER);
             for (int i = 0; i < files.length; i++) {
                 final File file = files[i];
+
                 final String name = file.getName().replace("page", "");
                 final int number = Integer.parseInt(name);
+
                 final ArrayList<File> list = new ArrayList<>();
                 Collections.addAll(list, file.listFiles(FILE_FILTER));
+
                 PROJECT_MAPPING.put(number, list);
 
                 System.out.printf("\t%d) %s\n", i + 1, file.getName());
@@ -60,17 +68,17 @@ public class Runner {
             final int project = in.nextInt() - 1; // Arrays are 0-based
             final File selectedFile = selectedPage.get(project);
 
-            if(selectedFile == null){
+            if (selectedFile == null) {
                 System.out.println("\nInvalid file. File " + project + " not found!");
                 System.exit(0);
             }
 
             final Class<?> cls = Class.forName(classNameFromFile(page, selectedFile));
-            final Method method = cls.getMethod("main", String[].class);
+            final Method method = cls.getMethod("run");
 
             System.out.println("\n-----------------------------------------------------\n");
             final long start = System.currentTimeMillis();
-            method.invoke(cls.newInstance(), (Object) null);
+            method.invoke(cls.newInstance());
             System.out.println("\n-----------------------------------------------------\n");
             System.out.printf("Execution time: %dms", System.currentTimeMillis() - start);
 
@@ -79,7 +87,7 @@ public class Runner {
         }
     }
 
-    private static String classNameFromFile(final int page, final File file){
+    private static String classNameFromFile(final int page, final File file) {
         return String.format("page%d.%s", page, file.getName().replace(".class", ""));
     }
 

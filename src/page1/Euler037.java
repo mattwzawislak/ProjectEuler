@@ -1,13 +1,17 @@
 package page1;
 
-import euler.Common;
+import euler.Project;
 
 /**
  * @author Obicere
  */
-public class Euler037 {
+public class Euler037 extends Project {
 
-    public static void main(final String[] args) {
+    public int number() {
+        return 37;
+    }
+
+    public void run() {
         int sum = 0;
         int count = 0;
         for (int i = 8; count < 11; i++) {
@@ -19,11 +23,11 @@ public class Euler037 {
         System.out.println(sum);
     }
 
-    public static boolean isTruncatablePrime(final int num) {
+    public boolean isTruncatablePrime(final int num) {
         int temp = num;
         int shift = 1;
         while (temp > 0) {
-            if (!Common.isPrime(temp)) {
+            if (!isPrime(temp)) {
                 return false;
             }
             temp /= 10;
@@ -33,7 +37,7 @@ public class Euler037 {
         }
         temp = num % shift;
         while (temp > 0) {
-            if (!Common.isPrime(temp)) {
+            if (!isPrime(temp)) {
                 return false;
             }
             shift /= 10;
@@ -41,5 +45,4 @@ public class Euler037 {
         }
         return true;
     }
-
 }

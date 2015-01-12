@@ -1,19 +1,23 @@
 package page1;
 
-import euler.Common;
+import euler.Project;
 
 /**
  * @author Obicere
  */
-public class Euler035 {
+public class Euler035 extends Project {
 
-    public static void main(final String[] args) {
+    public int number() {
+        return 35;
+    }
+
+    public void run() {
         int count = 0;
         top:
         for (int i = 2; i < 1000000; i++) {
-            final int[] digits = Common.getDigits(i);
-            for(int j = 0; j < digits.length; j++){
-                if(!Common.isPrime(Common.numberFromDigits(digits))){
+            final int[] digits = getDigits(i);
+            for (int j = 0; j < digits.length; j++) {
+                if (!isPrime(numberFromDigits(digits))) {
                     continue top;
                 }
                 rotate(digits);
@@ -28,5 +32,4 @@ public class Euler035 {
         System.arraycopy(digits, 1, digits, 0, digits.length - 1);
         digits[digits.length - 1] = top;
     }
-
 }

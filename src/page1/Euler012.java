@@ -1,11 +1,17 @@
 package page1;
 
+import euler.Project;
+
 /**
  * @author Obicere
  */
-public class Euler012 {
+public class Euler012 extends Project {
 
-    public static void main(final String[] args) {
+    public int number() {
+        return 12;
+    }
+
+    public void run() {
         int num = 0;
         for (int i = 1; i > 0; i++) {  // i > 0 stops potential overflow
             num += i;
@@ -21,5 +27,4 @@ public class Euler012 {
             }
         }
     }
-
 }

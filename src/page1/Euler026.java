@@ -1,22 +1,23 @@
 package page1;
 
-/**
- * page1
- * Created: 1/21/14 2:10 PM
- *
- * @author Obicere
- * @version 1.0
- */
-public class Euler026 {
+import euler.Project;
 
-    public static void main(final String[] args) {
+/**
+ * page1 * Created: 1/21/14 2:10 PM * * @author Obicere * @version 1.0
+ */
+public class Euler026 extends Project {
+
+    public int number() {
+        return 26;
+    }
+
+    public void run() {
         int score = 0;
         for (int i = 1000; i > 1; i--) {
             if (i <= score) {
                 // Not possible to break score at this value
                 break;
             }
-
             final int[] remainders = new int[i];
             int value = 1;
             int j;
@@ -32,5 +33,4 @@ public class Euler026 {
         }
         System.out.println(score);
     }
-
 }

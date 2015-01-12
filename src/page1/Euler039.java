@@ -1,11 +1,17 @@
 package page1;
 
+import euler.Project;
+
 /**
  * @author Obicere
  */
-public class Euler039 {
+public class Euler039 extends Project {
 
-    public static void main(final String[] args) {
+    public int number() {
+        return 39;
+    }
+
+    public void run() {
         int best = 0;
         int score = 0;
         for (int p = 2; p <= 1000; p++) {

@@ -1,20 +1,23 @@
 package page1;
 
-import euler.Common;
+import euler.Project;
 
 /**
  * @author Obicere
  */
-public class Euler036 {
+public class Euler036 extends Project {
 
-    public static void main(final String[] args){
+    public int number() {
+        return 36;
+    }
+
+    public void run() {
         int sum = 0;
-        for(int i = 1; i < 1000000; i++){
-            if(Common.isPalindrome(String.valueOf(i)) && Common.isPalindrome(Integer.toBinaryString(i))){
+        for (int i = 1; i < 1000000; i++) {
+            if (isPalindrome(String.valueOf(i)) && isPalindrome(Integer.toBinaryString(i))) {
                 sum += i;
             }
         }
         System.out.println(sum);
     }
-
 }

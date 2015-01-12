@@ -1,20 +1,23 @@
 package page1;
 
-import euler.Common;
+import euler.Project;
 
 /**
  * @author Obicere
  */
-public class Euler010 {
+public class Euler010 extends Project {
 
-    public static void main(final String[] args){
+    public int number() {
+        return 10;
+    }
+
+    public void run() {
         long sum = 2;
-        for(int i = 3; i < 2000000; i += 2){
-            if(Common.isPrime(i)){
+        for (int i = 3; i < 2000000; i += 2) {
+            if (isPrime(i)) {
                 sum += i;
             }
         }
         System.out.println(sum);
     }
-
 }

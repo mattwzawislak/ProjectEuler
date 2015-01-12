@@ -1,20 +1,26 @@
 package page1;
 
+import euler.Project;
+
 /**
  * @author Obicere
  */
-public class Euler014 {
+public class Euler014 extends Project {
+
+    public int number() {
+        return 14;
+    }
 
     private static final int[] REGISTRY = new int[1000000];
 
-    public static void main(final String[] args) {
+    public void run() {
         int longest = 0;
         int best = 0;
         for (int i = 1; i < 1000000; i++) {
             long num = i;
             int chain = 0;
             while (num != 1) {
-                if(num < REGISTRY.length && REGISTRY[(int) num] != 0){
+                if (num < REGISTRY.length && REGISTRY[(int) num] != 0) {
                     chain += REGISTRY[(int) num];
                     break;
                 }
@@ -34,5 +40,4 @@ public class Euler014 {
         }
         System.out.println(best);
     }
-
 }

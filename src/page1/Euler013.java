@@ -1,9 +1,15 @@
 package page1;
 
+import euler.Project;
+
 /**
  * @author Obicere
  */
-public class Euler013 {
+public class Euler013 extends Project {
+
+    public int number() {
+        return 13;
+    }
 
     public static final String[] DATA = new String[]{
             "37107287533902102798797998220837590246510135740250",
@@ -108,14 +114,14 @@ public class Euler013 {
             "53503534226472524250874054075591789781264330331690"
     };
 
-    public static void main(final String[] args) {
+    public void run() {
         long sum = 0;
         int radix = 0;
         for (int i = 49; i >= 0; i--) {
             for (final String data : DATA) {
                 sum += (data.charAt(i) - '0') * Math.pow(10, radix);
             }
-            if(radix < 10){
+            if (radix < 10) {
                 radix++;
             } else {
                 sum /= 10;
@@ -124,5 +130,4 @@ public class Euler013 {
         }
         System.out.println(String.valueOf(sum).substring(0, 10));
     }
-
 }

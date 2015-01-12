@@ -1,17 +1,17 @@
 package page1;
 
-import euler.Common;
+import euler.Project;
 
 /**
- * page1
- * Created: 1/21/14 2:50 PM
- *
- * @author Obicere
- * @version 1.0
+ * page1 * Created: 1/21/14 2:50 PM * * @author Obicere * @version 1.0
  */
-public class Euler027 {
+public class Euler027 extends Project {
 
-    public static void main(final String[] args) {
+    public int number() {
+        return 27;
+    }
+
+    public void run() {
         int best = 0;
         int score = 0;
         for (int i = -999; i < 1000; i++) {
@@ -20,7 +20,7 @@ public class Euler027 {
                 int count = 0;
                 for (int n = 0; n <= max; n++) {
                     int next = n * n + n * i + j;
-                    if (Common.isPrime(next)) {
+                    if (isPrime(next)) {
                         count++;
                     } else {
                         break;
@@ -34,5 +34,4 @@ public class Euler027 {
         }
         System.out.println(best);
     }
-
 }

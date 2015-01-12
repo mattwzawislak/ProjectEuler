@@ -1,24 +1,27 @@
 package page1;
 
-import euler.Common;
+import euler.Project;
 
 /**
  * @author Obicere
  */
-public class Euler002 {
+public class Euler002 extends Project {
 
-    public static void main(final String[] args){
+    public int number() {
+        return 2;
+    }
+
+    public void run() {
         int sum = 0;
-        for(int i = 0; i < Integer.MAX_VALUE; i++){
-            final int fib = Common.fibonacci(i);
-            if(fib > 4000000){
+        for (int i = 0; i < Integer.MAX_VALUE; i++) {
+            final int fib = fibonacci(i);
+            if (fib > 4000000) {
                 break;
             }
-            if(fib % 2 == 0){
+            if (fib % 2 == 0) {
                 sum += fib;
             }
         }
         System.out.println(sum);
     }
-
 }

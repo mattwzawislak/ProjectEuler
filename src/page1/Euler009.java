@@ -1,11 +1,17 @@
 package page1;
 
+import euler.Project;
+
 /**
  * @author Obicere
  */
-public class Euler009 {
+public class Euler009 extends Project {
 
-    public static void main(final String[] args) {
+    public int number() {
+        return 9;
+    }
+
+    public void run() {
         for (int a = 1; a <= 998; a++) {
             for (int b = a + 1; b <= 999 - a; b++) {
                 int c = 1000 - (a + b);
@@ -16,5 +22,4 @@ public class Euler009 {
             }
         }
     }
-
 }

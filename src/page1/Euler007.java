@@ -1,23 +1,26 @@
 package page1;
 
-import euler.Common;
+import euler.Project;
 
 /**
  * @author Obicere
  */
-public class Euler007 {
+public class Euler007 extends Project {
 
-    public static void main(final String[] args){
+    public int number() {
+        return 7;
+    }
+
+    public void run() {
         int number = 0;
-        for(int i  = 2;; i++){
-            if(Common.isPrime(i)){
+        for (int i = 2; ; i++) {
+            if (isPrime(i)) {
                 number++;
-                if(number == 10001){
+                if (number == 10001) {
                     System.out.println(i);
                     break;
                 }
             }
         }
     }
-
 }

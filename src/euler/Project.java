@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * @author Obicere
  */
-public class Common {
+public abstract class Project implements Runnable {
 
     private static final ArrayList<Integer> FIBONACCI = new ArrayList<>();
     private static final ArrayList<Integer> FACTORIAL = new ArrayList<>();
@@ -21,7 +21,11 @@ public class Common {
         FACTORIAL.add(1);
     }
 
-    public static boolean isPrime(final int num) {
+    public abstract int number();
+
+    public abstract void run();
+
+    public boolean isPrime(final int num) {
         if (num < 2) {
             return false;
         }
@@ -36,7 +40,7 @@ public class Common {
         return true;
     }
 
-    public static int[] getPrimeFactors(int num) {
+    public int[] getPrimeFactors(int num) {
         final ArrayList<Integer> factors = new ArrayList<>();
         while (num > 1) {
             for (int i = 2; i <= num; i++) {
@@ -54,8 +58,8 @@ public class Common {
         return nums;
     }
 
-    public static int fibonacci(final int i) {
-        if(i < 0){
+    public int fibonacci(final int i) {
+        if (i < 0) {
             return 0;
         }
         if (i < FIBONACCI.size()) {
@@ -66,14 +70,14 @@ public class Common {
         return num;
     }
 
-    public static boolean isPalindrome(final String str) {
+    public boolean isPalindrome(final String str) {
         if (str.length() <= 1) {
             return true;
         }
         return str.charAt(0) == str.charAt(str.length() - 1) && isPalindrome(str.substring(1, str.length() - 1));
     }
 
-    public static int[] getDivisors(final int num) {
+    public int[] getDivisors(final int num) {
         final List<Integer> list = new ArrayList<>();
         for (int i = 1; i <= num / 2; i++) {
             if (num % i == 0) {
@@ -88,7 +92,7 @@ public class Common {
         return nums;
     }
 
-    public static int sum(final int[] nums) {
+    public int sum(final int[] nums) {
         int sum = 0;
         for (final int n : nums) {
             sum += n;
@@ -96,12 +100,12 @@ public class Common {
         return sum;
     }
 
-    public static boolean isAbundant(final int num) {
+    public boolean isAbundant(final int num) {
         return sum(getDivisors(num)) > num;
     }
 
-    public static int factorial(final int num) {
-        if(num < 0){
+    public int factorial(final int num) {
+        if (num < 0) {
             return 0;
         }
         if (num < FACTORIAL.size()) {
@@ -112,7 +116,7 @@ public class Common {
         return result;
     }
 
-    public static int[] getDigits(final int num) {
+    public int[] getDigits(final int num) {
         if (num < 0) {
             return new int[0];
         }
@@ -124,7 +128,7 @@ public class Common {
         return digits;
     }
 
-    public static boolean isPandigital(final int nums[], final int order) {
+    public boolean isPandigital(final int nums[], final int order) {
         final int[] clone = nums.clone();
         Arrays.sort(clone);
         for (int i = 1; i <= order; i++) {
@@ -135,9 +139,9 @@ public class Common {
         return true;
     }
 
-    public static int[] combine(final int[]... lists){
+    public int[] combine(final int[]... lists) {
         int length = 0;
-        for(final int[] list : lists){
+        for (final int[] list : lists) {
             length += list.length;
         }
         final int[] newList = new int[length];
@@ -149,14 +153,15 @@ public class Common {
         return newList;
     }
 
-    public static int[] reduce(final int numerator, final int denominator){
+    public int[] reduce(final int numerator, final int denominator) {
         int num = numerator;
         int denom = denominator;
-        final int[] factorsNum = Common.getPrimeFactors(num);
-        final int[] factorsDenom = Common.getPrimeFactors(denom);
-        top: for(final int factorNum : factorsNum){
-            for(final int factorDenom : factorsDenom){
-                if(factorNum == factorDenom){
+        final int[] factorsNum = getPrimeFactors(num);
+        final int[] factorsDenom = getPrimeFactors(denom);
+        top:
+        for (final int factorNum : factorsNum) {
+            for (final int factorDenom : factorsDenom) {
+                if (factorNum == factorDenom) {
                     num /= factorNum;
                     denom /= factorDenom;
                     continue top;
@@ -166,14 +171,13 @@ public class Common {
         return new int[]{num, denom};
     }
 
-    public static int numberFromDigits(final int[] digits){
+    public int numberFromDigits(final int[] digits) {
         int num = 0;
         int radix = 1;
-        for(int i = digits.length - 1; i >= 0; i--){
+        for (int i = digits.length - 1; i >= 0; i--) {
             num += radix * digits[i];
             radix *= 10;
         }
         return num;
     }
-
 }

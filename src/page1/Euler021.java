@@ -1,22 +1,25 @@
 package page1;
 
-import euler.Common;
+import euler.Project;
 
 /**
  * @author Obicere
  */
-public class Euler021 {
+public class Euler021 extends Project {
 
-    public static void main(final String[] args){
+    public int number() {
+        return 21;
+    }
+
+    public void run() {
         int sum = 0;
-        for(int i = 1; i < 10000; i++){
-            int num = Common.sum(Common.getDivisors(i));
-            int otherNum = Common.sum(Common.getDivisors(num));
-            if(otherNum == i && num != i){
+        for (int i = 1; i < 10000; i++) {
+            int num = sum(getDivisors(i));
+            int otherNum = sum(getDivisors(num));
+            if (otherNum == i && num != i) {
                 sum += i;
             }
         }
         System.out.println(sum);
     }
-
 }

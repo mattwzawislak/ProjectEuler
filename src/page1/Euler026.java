@@ -1,6 +1,6 @@
 package page1;
 
-import euler.Project;
+import euler.project.Project;
 
 /**
  * page1 * Created: 1/21/14 2:10 PM * * @author Obicere * @version 1.0

@@ -1,4 +1,4 @@
-package euler;
+package euler.project;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * @author Obicere
  */
-public abstract class Project implements Runnable {
+public abstract class Project implements Runnable, Comparable<Project> {
 
     private static final ArrayList<Integer> FIBONACCI = new ArrayList<>();
     private static final ArrayList<Integer> FACTORIAL = new ArrayList<>();
@@ -24,6 +24,14 @@ public abstract class Project implements Runnable {
     public abstract int number();
 
     public abstract void run();
+
+    @Override
+    public final int compareTo(final Project other) {
+        if (other == null) {
+            return 1;
+        }
+        return Integer.compare(number(), other.number());
+    }
 
     public boolean isPrime(final int num) {
         if (num < 2) {

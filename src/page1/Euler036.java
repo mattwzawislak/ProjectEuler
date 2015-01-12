@@ -1,6 +1,6 @@
 package page1;
 
-import euler.Project;
+import euler.project.Project;
 
 /**
  * @author Obicere

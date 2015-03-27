@@ -1,16 +1,16 @@
 print:
-	.asciz	"Sum = %d\n"
+    .asciz  "Sum = %d\n"
 
-	.align 4
+    .align  4
 
-	.global	main
+    .global main
 main:
-	save	%sp,	-92,	%sp
+	save   %sp,    -92,    %sp
 
-	mov		1,		%l0
-	mov		1,		%l1
-	mov		0,		%l2
-	mov		0,		%l3
+    mov     1,      %l0
+    mov     1,      %l1
+    mov     0,      %l2
+    mov     0,      %l3
 
 	mov		1,		%l4
 	mov		1,		%l5

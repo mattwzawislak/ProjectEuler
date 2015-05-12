@@ -6,12 +6,12 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.WindowConstants;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.util.List;
 
 /**
  * @author Obicere
@@ -20,17 +20,11 @@ public class FrameManager {
 
     private static final Dimension PREFERRED_SIZE = new Dimension(640, 400); // 640 = 3 * panel_width + 5 * hgap + vertical scrollbar width
 
-    public FrameManager(final Project[] projects) {
+    public FrameManager(final List<Project> projects) {
 
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (final ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (final InstantiationException e) {
-            e.printStackTrace();
-        } catch (final IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (final UnsupportedLookAndFeelException e) {
+        } catch (final Exception e) {
             e.printStackTrace();
         }
 

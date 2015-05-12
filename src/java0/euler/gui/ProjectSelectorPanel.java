@@ -5,7 +5,8 @@ import org.obicere.utility.swing.WrapLayout;
 
 import javax.swing.JPanel;
 import java.awt.Component;
-import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -15,18 +16,18 @@ public class ProjectSelectorPanel extends JPanel {
 
     private final ProjectPanel[] panels;
 
-    public ProjectSelectorPanel(final Project[] projects) {
+    public ProjectSelectorPanel(final List<Project> projects) {
         super(new WrapLayout(WrapLayout.LEFT, 5, 5));
 
         Objects.requireNonNull(projects);
 
-        this.panels = new ProjectPanel[projects.length];
+        this.panels = new ProjectPanel[projects.size()];
 
-        Arrays.sort(projects);
+        Collections.sort(projects);
 
-        final int projectsLength = projects.length;
+        final int projectsLength = projects.size();
         for (int i = 0; i < projectsLength; i++) {
-            final Project project = projects[i];
+            final Project project = projects.get(i);
             if (project == null) {
                 continue;
             }
